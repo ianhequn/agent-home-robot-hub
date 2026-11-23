@@ -1,6 +1,6 @@
 # 工作区地图
 
-盘点时间：2026-11-22（北京时间）。范围：本机 `D:\大创`。这里记录**目录与仓库的实际关系**，不是新的项目目标或已经完成的整机能力。技术结论以对应源码和实验记录为准；项目定义以 `da_chuang_20261112` 的当前文档为准。
+盘点时间：2026-11-23（北京时间）。范围：本机 `D:\大创`。这里记录**目录与仓库的实际关系**，不是新的项目目标或已经完成的整机能力。技术结论以对应源码和实验记录为准；项目定义以 `da_chuang_20261112` 的当前文档为准。
 
 ## 1. 顶层目录
 
@@ -44,10 +44,10 @@ D:\大创\
 | --- | --- | --- | --- |
 | [ArmPi_Ultra_260913](https://github.com/ianhequn/ArmPi_Ultra_260913) | `My_note/README.md`；`src/arm_lerobot_dataset_stream/README.md` | ROS 2 Jazzy 机械臂控制、反馈、TCP/LeRobot 上下行；文档记录真机验证；`src/` 还包含 YDLidar ROS 2 驱动包 | RGB-D 接入、相机与底盘统一时空标定、整机抓取任务 |
 | [ChassisNav_01](https://github.com/ianhequn/ChassisNav_01) | `src/chassis_sim/`、`src/chassis_bringup/` | 早期 Gazebo/Nav2 相关仿真实验 | 默认 `master` 与更新的 `main`/实验分支并非同一最新版本；根 README 仍是模板，不能当作可复现说明 |
-| [ChassisNav_02_u22_wsl](https://github.com/ianhequn/ChassisNav_02_u22_wsl) | `src/dd_chassis_01_description/launch/`；`config/` | 自建差速底盘 URDF、Gazebo、雷达、IMU、SLAM Toolbox、Nav2 配置 | 没有根 README；真机驱动与仿真配置尚未在此仓库形成已验证的单一部署 |
-| [ros2_22_orangpi3b_261101](https://github.com/ianhequn/ros2_22_orangpi3b_261101) | `src/DD_Chassis_001_driver/README.md`；`dev_note/` | ROS 2 Humble/香橙派底盘串口、轮速、IMU 与 ros2_control 实现；分级验证记录 | 该驱动包明确不含激光雷达；与仿真导航及机械臂的整机联调 |
+| [ChassisNav_02_u22_wsl](https://github.com/ianhequn/ChassisNav_02_u22_wsl) | `src/dd_chassis_01_description/launch/`；`src/dd_chassis_001_driver/` | 自建差速底盘、Gazebo、雷达、IMU、SLAM Toolbox、Nav2 配置；11 月 23 日增加 Xacro 拆分、串口和硬件接口相关代码 | 没有根 README；新增代码的运行验证和与真机部署的对应关系仍需记录 |
+| [ros2_22_orangpi3b_261101](https://github.com/ianhequn/ros2_22_orangpi3b_261101) | `src/DD_Chassis_001_driver/README.md`；`dev_note/`；`Rui_03` 分支 | ROS 2 Humble/香橙派底盘串口、轮速、IMU 与 ros2_control 实现；新增驱动实验分支 | 该驱动包明确不含激光雷达；与仿真导航及机械臂的整机联调 |
 | [remote_SmolVLA](https://github.com/ianhequn/remote_SmolVLA) | `README.md`；`scripts/` | HPC 上的数据检查、训练和冒烟测试脚本，面向单路 RGB 的 ArmPi 数据 | 模型训练脚本不等于真机任务成功率或 Agent 技能接入 |
-| [robot_dev_note_261109](https://github.com/ianhequn/robot_dev_note_261109) | `ros2/`；`orangepi3b_u22`、`wsl_24` 分支 | WSL、香橙派与 ROS 2 环境记录 | 各分支笔记不是统一安装脚本；默认分支没有总览 README |
+| [robot_dev_note_261109](https://github.com/ianhequn/robot_dev_note_261109) | `ros2/`；`orangepi3b_u22`、`wsl_24` 分支 | WSL、香橙派与 ROS 2 环境记录；`orangepi3b_u22` 新增虚拟串口服务和 MCU 调试笔记 | 各分支笔记不是统一安装脚本；默认分支没有总览 README |
 
 这些仓库覆盖不同运行环境：机械臂工作区记录 ROS 2 Jazzy，香橙派底盘驱动记录 ROS 2 Humble，另有 Windows/WSL 与 HPC 训练环境。应分别按仓库构建和运行，再用经过验证的消息与服务接口联调。
 
@@ -72,8 +72,8 @@ flowchart LR
 ## 5. 同步与维护注意点
 
 - 截至本次盘点，项目文档本地、Codeup 与 GitHub 均已包含 **141 个提交**；GitHub 历史因统一作者身份而具有不同 SHA，但各阶段提交仍分别保留。11 月 22 日的 README 修正已同步。
-- 六个工程仓库的 Codeup 分支头与上次 GitHub 迁移时一致，本轮没有新的工程提交需要同步。
-- 本轮同步前七个原工作树及总站均无未提交修改。分支历史不能仅看当前检出的分支，例如 `ChassisNav_01` 的 `master` 停在 10 月，另有 11 月的 `main` 和实验分支。
+- 11 月 23 日已同步四个工程仓库的远端分支更新：`ChassisNav_01/ros2_control_test_01_demo`、`ChassisNav_02_u22_wsl/master`、`robot_dev_note_261109/orangepi3b_u22`、`ros2_22_orangpi3b_261101/Rui_02_wsl`，并发布新分支 `Rui_03`。其余三个原仓库没有新提交。GitHub 镜像保留各分支和原提交时间，作者身份改写使 SHA 与 Codeup 不同。
+- 本轮检查时七个原工作树及总站均无未提交修改；底盘仿真本地 `master` 已快进到 Codeup 最新。分支历史不能仅看当前检出的分支，例如 `ChassisNav_01` 的 `master` 停在 10 月，另有 11 月的 `main` 和实验分支。
 - `.github_migration/` 是 GitHub 历史同步所用的本地临时镜像和脚本，不是机器人代码或第三方依赖；本轮临时 SSH 部署密钥已撤销并删除。
 
 ## 6. 当前最有回报的下一步
