@@ -32,6 +32,8 @@
 
 具体阶段、验收点与未解决问题见 [实施路线](docs/roadmap.md)；当前证据边界见 [状态清单](docs/status.md)。本地目录、Git 仓库和阅读入口见 [工作区地图](docs/workspace-map.md)。
 
+最近的代码审阅检查点见 [Codex 工程审阅注释（2026-11-28）](docs/codex-review-2026-11-28.md)；其中的建议尚未替代实机验证记录。
+
 ## 阅读顺序
 
 1. 从 [项目定义](https://github.com/ianhequn/da_chuang_20261112) 理解目标、边界和研究问题。
